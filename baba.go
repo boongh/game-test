@@ -1,7 +1,6 @@
 package main
 
 import (
-	//"fmt"
 	"fmt"
 	"os/exec"
 )
@@ -29,16 +28,39 @@ func main() {
 		fmt.Println("password please")
 		var Password string
 		fmt.Scanln(&Password)
-		if Password == "Boon" && (name == "Bui" || name == "Boo"  || name == "Boon"){fmt.Println("wait")
-			_, err := exec.Command("Steam.exe").Output()
-			if err != nil {
-				fmt.Errorf("error; %s", err)
+		if Password == "Boon" && (name == "Bui" || name == "Boo" || name == "Boon") {
+			fmt.Println("What do you want to open,Google or Steam")
+			var Web string
+			fmt.Scanln(&Web)
+
+			if Web == "Steam" {
+				fmt.Println("wait")
+				_, err := exec.Command("Steam.exe").Output()
+				if err != nil {
+					fmt.Errorf("error; %s", err)
+				}
+				fmt.Println("ok now i open steam for you")
 			}
+			if Web == "steam" {
+				fmt.Println("did you mean Steam")
+			}
+
+			if Web == "Google" {
+				fmt.Println("wait")
+				_, err := exec.Command("chrome.exe").Output()
+				if err != nil {
+					fmt.Errorf("error; %s", err)
+				}
+			}
+			if Web == "google" {
+				fmt.Println("did you mean Google")
+
+			}
+
 		} else {
-			fmt.Println("password is wrong,you are not authorize to use")
+			fmt.Println("password is wrong, or you are not authorize to use")
 		}
 	} else {
 		fmt.Println("you are too old to use this")
 	}
-
 }
