@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"os/exec"
-)
+	"os/exec")
+
 
 func main() {
 	fmt.Println("welcome to my test program.\n" +
@@ -21,15 +21,27 @@ func main() {
 
 	fmt.Scanf("%d", &number)
 
-	if number < 10 {
+	if number < 5 {
 		fmt.Println("you dont have permisson to use")
-	} else if number >= 10 && number < 80 {
+	} else if number >= 5 && number < 50 {
 		fmt.Println("ok,", name, " can use this")
 		fmt.Println("password please")
 		var Password string
 		fmt.Scanln(&Password)
 		if Password == "Boon" && (name == "Bui" || name == "Boo" || name == "Boon") {
-			fmt.Println("What do you want to open,Google or Steam")
+			fmt.Println("What do you want to open,Google or Steam or minecraft or internet explore" +
+				"or paint or excel or vba but password again")
+
+			var password2 string
+			fmt.scanln(&password2)
+			if password2 == "Boon" {
+				fmt.println("ok password is correct" +
+					"now what do you want to open")
+			} else {
+				fmt.println("password is wrong now you cannot use")
+				return
+			}
+
 			var Web string
 			fmt.Scanln(&Web)
 
@@ -56,11 +68,44 @@ func main() {
 				fmt.Println("did you mean Google")
 
 			}
+			if Web == "minecraft" {
+				fmt.println("wait")
+				_, err := exec.command("Minecraft Launcher.exe").output()
+				if err != nil {
+					fmt.Errorf("error; %s", err)
+				}
+			}
+			fmt.Println("ok now i open minecraft for you")
+			if Web == "internet explore" {
+				fmt.println("wait")
+				_, err = exec.command("iexplore.exe").output()
+				if err != nil {
+					fmt.Errorf("error; %s", err)}}
 
+				if Web == "paint" {
+					fmt.println("wait")
+					_, err := exec.command("mspaint.exe").output()
+					if err != nil {
+						fmt.Errorf("error; %s", err)}}
+
+
+
+				if Web == "excel" {
+					_, err := exec.Command("Microsoft Office Enterprice 2007").Output()
+					if err != nil {
+						fmt.Errorf("error; %s", err)}}
+
+
+				if Web == "vba" {
+					_, err := exec.command("VB6.EXE").output()
+					if err != nil {
+						fmt.Errorf("error; %s", err)}
+				} else {
+				fmt.Println("i dont know what is this")
+			} else {
+			fmt.Println("i dont know what is this")}}
 		} else {
 			fmt.Println("password is wrong, or you are not authorize to use")
-		}
-	} else {
-		fmt.Println("you are too old to use this")
-	}
-}
+		}else {
+fmt.Println("you are too old to use this")}}
+
